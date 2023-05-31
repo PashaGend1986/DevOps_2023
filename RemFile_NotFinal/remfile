@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd /Users/gnpavel/Targil/Remfile/Files
+directory=.
+
+
+files=$(ls "$directory")
+
+ls | while read -r file 
+do
+  if grep -q "hello" "$file" 
+   then
+    echo "Deleting file: $file"
+    rm "$file"
+    echo $file  >> logfile
+  fi
+done
